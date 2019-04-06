@@ -1,16 +1,20 @@
-DROP TABLE IF EXISTS `registration`;
+DROP TABLE IF EXISTS registration;
 
-CREATE TABLE `registration` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `client_id` int(11) DEFAULT NULL,
-  `branch_id` int(11) DEFAULT NULL,
-  `staff_id` int(11) DEFAULT NULL,
-  `dateJoined` date DEFAULT NULL,
+CREATE TABLE IF NOT EXISTS `std6102041520165`.`registration` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `client_id` INT(11) NULL DEFAULT NULL,
+  `property_for_rent_id` INT NULL,
+  `dateJoined` DATE NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `client_id` (`client_id`),
-  KEY `branch_id` (`branch_id`),
-  KEY `staff_id` (`staff_id`),
-  FOREIGN KEY (`client_id`) REFERENCES `client` (`id`),
-  FOREIGN KEY (`branch_id`) REFERENCES `branch` (`id`),
-  FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  INDEX `client_id` (`client_id` ASC),
+  INDEX `property_for_rent_id_idx` (`property_for_rent_id` ASC),
+  CONSTRAINT `client_id`
+    FOREIGN KEY (`client_id`)
+    REFERENCES `std6102041520165`.`client` (`id`),
+  CONSTRAINT `property_for_rent_id`
+    FOREIGN KEY (`property_for_rent_id`)
+    REFERENCES `std6102041520165`.`property_for_rent` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
