@@ -1,12 +1,13 @@
 DROP TABLE IF EXISTS `client`;
 
-CREATE TABLE `client` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `client_no` varchar(5) DEFAULT NULL,
-  `f_name` varchar(100) DEFAULT NULL,
-  `l_name` varchar(100) DEFAULT NULL,
-  `tel_no` varchar(11) DEFAULT NULL,
-  `pref_type` varchar(50) DEFAULT NULL,
-  `max_rent` float(7,2) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `std6102041520165`.`client` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `client_no` VARCHAR(5) NULL DEFAULT NULL,
+  `f_name` VARCHAR(100) NULL DEFAULT NULL,
+  `l_name` VARCHAR(100) NULL DEFAULT NULL,
+  `tel_no` VARCHAR(11) NULL DEFAULT NULL,
+  `pref_type` VARCHAR(50) NULL DEFAULT NULL,
+  `max_rent` FLOAT(7,2) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;

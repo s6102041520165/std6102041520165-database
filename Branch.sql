@@ -1,10 +1,11 @@
 DROP TABLE IF EXISTS `branch`;
 
-CREATE TABLE `branch` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `branch_no` varchar(5) NOT NULL,
-  `street` varchar(150) NOT NULL,
-  `city` varchar(150) NOT NULL,
-  `postcode` varchar(10) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `std6102041520165`.`branch` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `branch_no` VARCHAR(5) NOT NULL,
+  `street` VARCHAR(150) NOT NULL,
+  `city` VARCHAR(150) NOT NULL,
+  `postcode` VARCHAR(10) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;

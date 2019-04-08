@@ -1,19 +1,19 @@
 DROP TABLE IF EXISTS `staff`;
 
-CREATE TABLE `staff` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `staff_no` varchar(5) DEFAULT NULL,
-  `f_name` varchar(100) DEFAULT NULL,
-  `l_name` varchar(100) DEFAULT NULL,
-  `position` varchar(50) DEFAULT NULL,
-  `sex` varchar(2) DEFAULT NULL,
-  `d_o_b` date DEFAULT NULL,
-  `salary` float(7,2) DEFAULT NULL,
-  `branch_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
+CREATE TABLE IF NOT EXISTS `std6102041520165`.`staff` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `staff_no` VARCHAR(5) NULL DEFAULT NULL,
+  `f_name` VARCHAR(100) NULL DEFAULT NULL,
+  `l_name` VARCHAR(100) NULL DEFAULT NULL,
+  `position` VARCHAR(50) NULL DEFAULT NULL,
+  `sex` VARCHAR(2) NULL DEFAULT NULL,
+  `d_o_b` DATE NULL DEFAULT NULL,
+  `salary` FLOAT(7,2) NULL DEFAULT NULL,
+  `branch_id` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `user_id_idx` (`user_id`),
-  KEY `branch_id` (`branch_id`),
-  FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  FOREIGN KEY (`branch_id`) REFERENCES `branch` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  INDEX `branch_id_idx` (`branch_id` ASC),
+  CONSTRAINT `fk_branch_id`
+    FOREIGN KEY (`branch_id`)
+    REFERENCES `std6102041520165`.`branch` (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
